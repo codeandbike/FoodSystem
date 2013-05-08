@@ -15,6 +15,8 @@ import android.graphics.Bitmap;
 public class FoodSystemApp extends Application {
 
 	public List<Bitmap> mBitmaps;
+	
+	//…œ¥´≤‚ ‘
 
 }
  
