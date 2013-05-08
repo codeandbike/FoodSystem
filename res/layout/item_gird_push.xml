@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <ImageView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/foodimag" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="#196fba"
+                android:text="萝卜青菜"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+</LinearLayout>
