@@ -29,7 +29,6 @@ public class Activity_FirstPage extends Activity {
 	private EditText mEditText_input;
 	private ImageButton mButton_sou;
 	private GridView mGridView_push;
-	private GridView mGridView_Menu;
 	private boolean isExit = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +38,12 @@ public class Activity_FirstPage extends Activity {
 		mEditText_input = (EditText)findViewById(R.id.FirstPage_edit_input);
 		mButton_sou = (ImageButton)findViewById(R.id.FirstPage_button_sou);
 		mGridView_push = (GridView)findViewById(R.id.FirstPage_Grid_push);
-		mGridView_Menu = (GridView)findViewById(R.id.FirstPage_Grid_Menu);
+		
 		
 		
 		GridViewAdapter adapter_push = new GridViewAdapter(Activity_FirstPage.this);
-		GridViewAdapter_Menu adapter_Menu = new GridViewAdapter_Menu(Activity_FirstPage.this);
 		mGridView_push.setAdapter(adapter_push);
-		mGridView_Menu.setAdapter(adapter_Menu);
+		
 		
 		mButton_sou.setOnClickListener(new View.OnClickListener() {
 			
