@@ -9,7 +9,7 @@
 
     <application
         android:name=".FoodSystemApp"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
