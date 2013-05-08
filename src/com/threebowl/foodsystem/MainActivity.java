@@ -38,6 +38,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -50,6 +51,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AbsListView.OnScrollListener;
 
 public class MainActivity extends ListActivity implements OnScrollListener {
@@ -72,6 +74,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 	private TextView mTextView_Title;
 	private List<Map<String, String>> contentData;
 	private ImageButton mImageButton_Back;
+	private boolean isExit = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -466,6 +469,39 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 				str.getBytes("utf-8"));
 		return stream;
 	}
+	
+	  @Override
+	    public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    	// TODO Auto-generated method stub
+
+	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
+	    		ToQuitApp();
+	    		return false;
+			} else {
+				return super.onKeyDown(keyCode, event);
+			}
+	    }
+	    
+	    private void ToQuitApp(){
+	    	if (isExit) {
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(intent.CATEGORY_HOME);
+				startActivity(intent);
+				System.exit(0);
+			} else {
+				isExit = true;
+				Toast.makeText(MainActivity.this, "再按一次返回键退出APP", Toast.LENGTH_SHORT).show();
+				mHandler.sendEmptyMessageDelayed(0, 3000);
+
+			}
+	    }
+	    
+	    Handler mHandler = new Handler(){
+	    	public void handleMessage(Message msg) {
+	    		super.handleMessage(msg);
+	    		isExit = false;
+	    	};
+	    };
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
