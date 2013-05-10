@@ -58,38 +58,38 @@ public class Activity_FirstPage extends Activity {
 		});
 	}
 	
-	  @Override
-	    public boolean onKeyDown(int keyCode, KeyEvent event) {
-	    	// TODO Auto-generated method stub
-
-	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
-	    		ToQuitApp();
-	    		return false;
-			} else {
-				return super.onKeyDown(keyCode, event);
-			}
-	    }
-	    
-	    private void ToQuitApp(){
-	    	if (isExit) {
-				Intent intent = new Intent(Intent.ACTION_MAIN);
-				intent.addCategory(intent.CATEGORY_HOME);
-				startActivity(intent);
-				System.exit(0);
-			} else {
-				isExit = true;
-				Toast.makeText(Activity_FirstPage.this, "再按一次返回键退出APP", Toast.LENGTH_SHORT).show();
-				mHandler.sendEmptyMessageDelayed(0, 3000);
-
-			}
-	    }
-	    
-	    Handler mHandler = new Handler(){
-	    	public void handleMessage(Message msg) {
-	    		super.handleMessage(msg);
-	    		isExit = false;
-	    	};
-	    };
+//	  @Override
+//	    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//	    	// TODO Auto-generated method stub
+//
+//	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
+//	    		ToQuitApp();
+//	    		return false;
+//			} else {
+//				return super.onKeyDown(keyCode, event);
+//			}
+//	    }
+//	    
+//	    private void ToQuitApp(){
+//	    	if (isExit) {
+//				Intent intent = new Intent(Intent.ACTION_MAIN);
+//				intent.addCategory(intent.CATEGORY_HOME);
+//				startActivity(intent);
+//				System.exit(0);
+//			} else {
+//				isExit = true;
+//				Toast.makeText(Activity_FirstPage.this, "再按一次返回键退出APP", Toast.LENGTH_SHORT).show();
+//				mHandler.sendEmptyMessageDelayed(0, 3000);
+//
+//			}
+//	    }
+//	    
+//	    Handler mHandler = new Handler(){
+//	    	public void handleMessage(Message msg) {
+//	    		super.handleMessage(msg);
+//	    		isExit = false;
+//	    	};
+//	    };
 
 }
  

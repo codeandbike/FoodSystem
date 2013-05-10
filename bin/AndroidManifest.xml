@@ -14,16 +14,19 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity android:name=".views.Activity_FirstPage" >
+            android:label="@string/title_activity_main" />
+        <activity android:name=".views.Activity_FirstPage" />
+        <activity android:name=".views.Activity_ContentPage" />
+        <activity android:name=".views.MainTabs" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.Activity_ContentPage"></activity>
+        <activity android:name=".views.Activity_Style" />
+        <activity android:name=".views.Activity_Common" />
+        <activity android:name=".views.Activity_About" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -74,7 +74,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 	private TextView mTextView_Title;
 	private List<Map<String, String>> contentData;
 	private ImageButton mImageButton_Back;
-	private boolean isExit = false;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 		app = (FoodSystemApp) getApplicationContext();
 		app.mBitmaps = listImage;
 		mTextView_Title = (TextView) findViewById(R.id.Main_Text_Title);
-		mImageButton_Back  =(ImageButton)findViewById(R.id.Main_ImgBut_Back);
+		mImageButton_Back = (ImageButton) findViewById(R.id.Main_ImgBut_Back);
 		Intent intent = getIntent();
 		mString_Food = intent.getStringExtra("FoodName");
 		mTextView_Title.setText(mString_Food);
@@ -157,7 +157,6 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 		mListView_content.addFooterView(view);
 		mListView_content.setAdapter(adapter);
 		mListView_content.setOnScrollListener(this);
-		
 
 		mListView_content
 				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -165,19 +164,20 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 					public void onItemClick(AdapterView<?> arg0, View arg1,
 							int arg2, long arg3) {
 						// TODO Auto-generated method stub
-						 Intent intent = new Intent();
-						 intent.setClass(MainActivity.this, Activity_ContentPage.class);
-						 String urlString = contentData.get(arg2).get("a");
-						 String h2Str = contentData.get(arg2).get("h2");
-						 intent.putExtra("FoodURL", urlString);
-						 intent.putExtra("Foodh2", h2Str);
-						 startActivity(intent);
+						Intent intent = new Intent();
+						intent.setClass(MainActivity.this,
+								Activity_ContentPage.class);
+						String urlString = contentData.get(arg2).get("a");
+						String h2Str = contentData.get(arg2).get("h2");
+						intent.putExtra("FoodURL", urlString);
+						intent.putExtra("Foodh2", h2Str);
+						startActivity(intent);
 					}
 
 				});
-		
+
 		mImageButton_Back.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -398,10 +398,10 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 
 			List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 			list = getData(inputStream);
-			
-			 for (int i = 0; i < list.size(); i++) {
-				 contentData.add(list.get(i));
-			 }
+
+			for (int i = 0; i < list.size(); i++) {
+				contentData.add(list.get(i));
+			}
 
 			String img_url;
 			for (int i = 0; i < list.size(); i++) {
@@ -469,39 +469,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 				str.getBytes("utf-8"));
 		return stream;
 	}
-	
-	  @Override
-	    public boolean onKeyDown(int keyCode, KeyEvent event) {
-	    	// TODO Auto-generated method stub
 
-	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
-	    		ToQuitApp();
-	    		return false;
-			} else {
-				return super.onKeyDown(keyCode, event);
-			}
-	    }
-	    
-	    private void ToQuitApp(){
-	    	if (isExit) {
-				Intent intent = new Intent(Intent.ACTION_MAIN);
-				intent.addCategory(intent.CATEGORY_HOME);
-				startActivity(intent);
-				System.exit(0);
-			} else {
-				isExit = true;
-				Toast.makeText(MainActivity.this, "再按一次返回键退出APP", Toast.LENGTH_SHORT).show();
-				mHandler.sendEmptyMessageDelayed(0, 3000);
-
-			}
-	    }
-	    
-	    Handler mHandler = new Handler(){
-	    	public void handleMessage(Message msg) {
-	    		super.handleMessage(msg);
-	    		isExit = false;
-	    	};
-	    };
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

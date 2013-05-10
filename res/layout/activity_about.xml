@@ -23,7 +23,7 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/edit_bg"
-            android:hint="请输入数据"
+            android:hint="关于"
             android:paddingLeft="10dp" />
 
         <ImageButton
