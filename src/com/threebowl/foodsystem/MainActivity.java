@@ -394,7 +394,6 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 
 			String xmlData = String_Cut(html);
 			inputStream = String2InputStream(xmlData);
-			// listData = getData(inputStream);
 
 			List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 			list = getData(inputStream);
@@ -408,7 +407,6 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 				Map<String, Object> map = new HashMap<String, Object>();
 				img_url = list.get(i).get("img");
 				imageUrl.add(img_url);
-				// map.put("img", mbitmap);
 				map.put("h2", list.get(i).get("h2"));
 				map.put("span", list.get(i).get("span"));
 				listImage.add(mbitmap);

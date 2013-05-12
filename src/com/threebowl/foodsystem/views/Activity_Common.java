@@ -67,21 +67,21 @@ public class Activity_Common extends Activity {
 		private List<Bitmap> getBitmaps() {
 			List<Bitmap> Bitmaps = new ArrayList<Bitmap>();
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.recai));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.liangcai));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.tangzhou));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.jcc));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.haixian));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.gaodian));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.tianpin));
 			Bitmaps.add(getBitmapFromResources(Activity_Common.this,
-					R.drawable.foodimag));
+					R.drawable.xicang));
 			return Bitmaps;
 		}
 

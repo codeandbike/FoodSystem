@@ -11,6 +11,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.renderscript.Mesh.Primitive;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 /**
@@ -29,9 +32,10 @@ import android.widget.GridView;
  *
  *@=====================================================
  */
-public class Activity_Style extends Activity {
+public class Activity_Style extends Activity implements OnItemClickListener{
 	
 	private GridView mGridView_Style;
+	private String phah;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,22 +73,29 @@ public class Activity_Style extends Activity {
 		private List<Bitmap> getBitmaps() {
 			List<Bitmap> Bitmaps = new ArrayList<Bitmap>();
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.chuan));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.lu));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.min));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.yue));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.jiang));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.zhe));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.xiang));
 			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
-					R.drawable.foodimag));
+					R.drawable.hui));
 			return Bitmaps;
+		}
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			// TODO Auto-generated method stub
+			
 		}
 
 }

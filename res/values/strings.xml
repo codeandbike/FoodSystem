@@ -8,7 +8,9 @@
     <string name="message">菜系</string>
     <string name="photo">家常</string>
     <string name="music">关于</string>
-
+    
+    <string name="url_chuan">http://home.meishichina.com/wap.php?ac=collect&amp;id=43422&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
+   
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
 
