@@ -6,6 +6,9 @@ import java.util.List;
 import com.threebowl.foodsystem.R;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.renderscript.Mesh.Primitive;
 import android.widget.GridView;
@@ -37,7 +40,7 @@ public class Activity_Style extends Activity {
 		setContentView(R.layout.activity_style);
 		mGridView_Style = (GridView)findViewById(R.id.FirstPage_Grid_Style);
 		
-		GridViewAdapter adapter = new GridViewAdapter(Activity_Style.this,getStrings());
+		GridViewAdapter adapter = new GridViewAdapter(Activity_Style.this,getStrings(),getBitmaps());
 		mGridView_Style.setAdapter(adapter);
 		
 	}
@@ -56,6 +59,33 @@ public class Activity_Style extends Activity {
 		return strings;
 		
 	}
+	
+	// 从资源中获取Bitmap
+		public static Bitmap getBitmapFromResources(Activity act, int resId) {
+			Resources res = act.getResources();
+			return BitmapFactory.decodeResource(res, resId);
+		}
+
+		private List<Bitmap> getBitmaps() {
+			List<Bitmap> Bitmaps = new ArrayList<Bitmap>();
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			Bitmaps.add(getBitmapFromResources(Activity_Style.this,
+					R.drawable.foodimag));
+			return Bitmaps;
+		}
 
 }
  

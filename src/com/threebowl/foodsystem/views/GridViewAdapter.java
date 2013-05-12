@@ -5,8 +5,11 @@ import java.util.List;
 import com.threebowl.foodsystem.R;
 
 import android.R.integer;
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
@@ -27,8 +30,9 @@ public class GridViewAdapter extends BaseAdapter {
 	List<String> mItemText;
 	List<Bitmap> mItemBitmap;
 
-	public GridViewAdapter(Context context, List<String> mItemText) {
-		this.mItemText = mItemText;
+	public GridViewAdapter(Context context, List<String> ItemText,List<Bitmap> ItemBitmap) {
+		this.mItemText = ItemText;
+		this.mItemBitmap = ItemBitmap;
 
 		mContext = context;
 
@@ -63,17 +67,21 @@ public class GridViewAdapter extends BaseAdapter {
 		convertView = mLayoutInflater.inflate(R.layout.item_gird_push, null);
 		// }
 
-		// ImageView imageView = (ImageView)
-		// convertView.findViewById(R.id.imageview);
-		// imageView.setBackgroundDrawable(mMenuItemData.getDrawable(position));
-		//
-		//
+		 ImageView imageView = (ImageView)
+		 convertView.findViewById(R.id.Grid_Item_Img);
+		 imageView.setImageBitmap(mItemBitmap.get(position));
+		 
 		 TextView textView = (TextView)
 		 convertView.findViewById(R.id.Grid_Item_Text);
 		 textView.setText(mItemText.get(position));
+		 
+		 
 
 		return convertView;
 
 	}
+	
+	
+
 
 }
