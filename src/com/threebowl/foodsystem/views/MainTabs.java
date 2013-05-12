@@ -56,7 +56,7 @@ public class MainTabs extends TabActivity implements OnCheckedChangeListener {
 		mRadioGroup = (RadioGroup) findViewById(R.id.main_radio);
 		mRadioGroup.setOnCheckedChangeListener(this);
 	}
-
+	
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		// TODO Auto-generated method stub

@@ -1,9 +1,13 @@
 package com.threebowl.foodsystem.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.threebowl.foodsystem.R;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.GridView;
 
 /**
  *====================================================
@@ -23,11 +27,32 @@ import android.os.Bundle;
  */
 public class Activity_Common extends Activity {
 	
+	private GridView mGridView_Common;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_common);
+		mGridView_Common = (GridView)findViewById(R.id.FirstPage_Grid_Common);
+		
+		GridViewAdapter adapter = new GridViewAdapter(Activity_Common.this,getStrings());
+		mGridView_Common.setAdapter(adapter);
+		
+	}
+	
+	private List<String> getStrings(){
+		List<String> strings = new ArrayList<String>();
+		strings.add("热菜");
+		strings.add("凉菜");
+		strings.add("汤粥");
+		strings.add("家常菜");
+		strings.add("海鲜");
+		strings.add("糕点主食");
+		strings.add("甜品");
+		strings.add("西餐");		
+		return strings;
+		
 	}
 
 }

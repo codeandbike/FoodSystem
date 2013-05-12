@@ -1,5 +1,8 @@
 package com.threebowl.foodsystem.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.threebowl.foodsystem.MainActivity;
 import com.threebowl.foodsystem.R;
 
@@ -41,7 +44,7 @@ public class Activity_FirstPage extends Activity {
 		
 		
 		
-		GridViewAdapter adapter_push = new GridViewAdapter(Activity_FirstPage.this);
+		GridViewAdapter adapter_push = new GridViewAdapter(Activity_FirstPage.this,getStrings());
 		mGridView_push.setAdapter(adapter_push);
 		
 		
@@ -56,6 +59,21 @@ public class Activity_FirstPage extends Activity {
 				startActivity(intent);
 			}
 		});
+	}
+	
+	private List<String> getStrings(){
+		List<String> strings = new ArrayList<String>();
+		strings.add("ÀÆ÷Û”„");
+		strings.add("∫Ï…’»‚");
+		strings.add("ø…¿÷º¶≥·");
+		strings.add("Ω¥≈£»‚");
+		strings.add("µÿ»˝œ ");
+		strings.add("∂π∏Ø");
+		strings.add("∞◊¬‹≤∑");
+		strings.add("ˆÍ”„Ã¿");
+		
+		return strings;
+		
 	}
 	
 //	  @Override

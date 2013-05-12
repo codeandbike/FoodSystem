@@ -10,6 +10,7 @@
                 android:src="@drawable/foodimag" />
 
             <TextView
+                android:id="@+id/Grid_Item_Text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:background="#196fba"

@@ -13,41 +13,32 @@
         android:id="@+id/Layout_sou"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="#196fba"
+        
         android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/FirstPage_edit_input"
-            android:layout_width="230dp"
-            android:layout_height="40dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/edit_bg"
-            android:hint="菜系"
-            android:paddingLeft="10dp" />
-
-        <ImageButton
-            android:id="@+id/FirstPage_button_sou"
+        <TextView
+            android:id="@+id/Main_Text_Title"
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
-            android:background="#196fba"
-            android:src="@drawable/sous" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:textColor="#fff"
+            android:text="八大菜系"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <GridView
-        android:id="@+id/FirstPage_Grid_push"
+        android:id="@+id/FirstPage_Grid_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
         android:columnWidth="100dp"
         android:gravity="center"
         android:numColumns="auto_fit"
-        android:padding="30dp"
+        android:padding="10dp"
         android:verticalSpacing="10dp" >
     </GridView>
-
-   
 
 </RelativeLayout>

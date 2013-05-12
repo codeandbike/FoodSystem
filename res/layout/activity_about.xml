@@ -3,50 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:layout_width="0px"
-        android:layout_height="0px"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
-
-    <LinearLayout
-        android:id="@+id/Layout_sou"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <EditText
-            android:id="@+id/FirstPage_edit_input"
-            android:layout_width="230dp"
-            android:layout_height="40dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/edit_bg"
-            android:hint="关于"
-            android:paddingLeft="10dp" />
-
-        <ImageButton
-            android:id="@+id/FirstPage_button_sou"
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
-            android:background="#196fba"
-            android:src="@drawable/sous" />
-    </LinearLayout>
-
-    <GridView
-        android:id="@+id/FirstPage_Grid_push"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:columnWidth="100dp"
-        android:gravity="center"
-        android:numColumns="auto_fit"
-        android:padding="30dp"
-        android:verticalSpacing="10dp" >
-    </GridView>
+   <Button 
+       android:id="@+id/about_button_update"
+       android:layout_height="wrap_content"
+       android:layout_width="fill_parent"
+       android:text="检查更新"
+       android:layout_alignParentBottom="true"
+       
+       />
+   
+   <LinearLayout android:layout_height="wrap_content"
+       android:layout_above="@id/about_button_update"
+       android:layout_marginBottom="70dp"
+       android:orientation="vertical"
+       android:gravity="center"
+       android:layout_width="fill_parent">
+       <ImageView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:src="@drawable/icon_logo"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="三大碗菜谱应用系统"
+           android:textColor="#196fba"
+           android:textSize="24sp"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="当前版本：1.0"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="作者：许度庆"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="bug反馈：ahjd114@163.com"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="以此致谢背后的爱人，原谅没有太多的时间陪你"
+           />
+   </LinearLayout>
 
    
 

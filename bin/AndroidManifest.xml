@@ -17,7 +17,8 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".views.Activity_FirstPage" />
         <activity android:name=".views.Activity_ContentPage" />
-        <activity android:name=".views.MainTabs" >
+        <activity android:name=".views.MainTabs" 
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

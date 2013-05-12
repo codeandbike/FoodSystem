@@ -1,9 +1,14 @@
 package com.threebowl.foodsystem.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.threebowl.foodsystem.R;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.renderscript.Mesh.Primitive;
+import android.widget.GridView;
 
 /**
  *====================================================
@@ -23,11 +28,33 @@ import android.os.Bundle;
  */
 public class Activity_Style extends Activity {
 	
+	private GridView mGridView_Style;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_style);
+		mGridView_Style = (GridView)findViewById(R.id.FirstPage_Grid_Style);
+		
+		GridViewAdapter adapter = new GridViewAdapter(Activity_Style.this,getStrings());
+		mGridView_Style.setAdapter(adapter);
+		
+	}
+	
+	private List<String> getStrings(){
+		List<String> strings = new ArrayList<String>();
+		strings.add("´¨²Ë");
+		strings.add("Â³²Ë");
+		strings.add("Ãö²Ë");
+		strings.add("ÔÁ²Ë");
+		strings.add("ËÕ²Ë");
+		strings.add("Õã²Ë");
+		strings.add("Ïæ²Ë");
+		strings.add("»Õ²Ë");
+		
+		return strings;
+		
 	}
 
 }
