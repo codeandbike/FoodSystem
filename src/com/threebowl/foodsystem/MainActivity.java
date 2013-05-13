@@ -23,6 +23,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import com.threebowl.foodsystem.base.HttpDate;
 import com.threebowl.foodsystem.base.MyHandler;
 import com.threebowl.foodsystem.views.Activity_ContentPage;
 import com.threebowl.foodsystem.views.MyAdapter;
@@ -74,6 +75,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 	private TextView mTextView_Title;
 	private List<Map<String, String>> contentData;
 	private ImageButton mImageButton_Back;
+	private String phah_caixi;
 
 
 	@Override
@@ -93,6 +95,7 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+			
 		// 加载初始化图片
 		InitImage();
 		pageID = 2; // 从第二页开始请求

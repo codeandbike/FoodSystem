@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.threebowl.foodsystem.MainActivity;
 import com.threebowl.foodsystem.R;
 import com.threebowl.foodsystem.R.string;
 
@@ -116,7 +117,7 @@ public class Activity_Style extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long rowid) {
 		Intent intent = new Intent(Activity_Style.this,
-				Activity_Style_Other.class);
+					Activity_Style_Other.class);
 		intent.putExtra("caixi", data_url.get(position));
 		startActivity(intent);
 
