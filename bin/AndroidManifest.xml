@@ -17,6 +17,7 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".views.Activity_FirstPage" />
         <activity android:name=".views.Activity_ContentPage" />
+        <activity android:name=".views.Activity_Style_Other" />
         <activity android:name=".views.MainTabs" 
             >
             <intent-filter>
@@ -28,6 +29,7 @@
         <activity android:name=".views.Activity_Style" />
         <activity android:name=".views.Activity_Common" />
         <activity android:name=".views.Activity_About" />
+        
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -17,6 +17,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -31,7 +33,7 @@ import android.widget.Toast;
  * 
  *         ÀàËµÃ÷:
  */
-public class Activity_FirstPage extends Activity {
+public class Activity_FirstPage extends Activity implements OnItemClickListener{
 
 	private EditText mEditText_input;
 	private ImageButton mButton_sou;
@@ -105,6 +107,12 @@ public class Activity_FirstPage extends Activity {
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
 				R.drawable.foodimag));
 		return Bitmaps;
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// @Override
