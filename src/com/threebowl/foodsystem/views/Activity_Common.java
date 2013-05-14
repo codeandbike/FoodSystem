@@ -3,13 +3,20 @@ package com.threebowl.foodsystem.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.threebowl.foodsystem.MainActivity;
 import com.threebowl.foodsystem.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 /**
@@ -41,6 +48,22 @@ public class Activity_Common extends Activity {
 		
 		GridViewAdapter adapter = new GridViewAdapter(Activity_Common.this,getStrings(),getBitmaps());
 		mGridView_Common.setAdapter(adapter);
+		
+		mGridView_Common.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				
+				Intent intent = new Intent(Activity_Common.this,
+						MainActivity.class);
+				intent.putExtra("FoodName", getStrings().get(arg2));
+				intent.putExtra("Tag", 1);
+				intent.putExtra("url", getStrings_url().get(arg2));
+				startActivity(intent);
+				
+			}
+		});
 		
 	}
 	
@@ -84,6 +107,25 @@ public class Activity_Common extends Activity {
 					R.drawable.xicang));
 			return Bitmaps;
 		}
+		
+		
+		// 将八大菜系的URL储存在List集合中
+		private List<String> getStrings_url() {
+			List<String> urlStrings = new ArrayList<String>();
+		
+				urlStrings.add(Activity_Common.this.getString(R.string.url_recai));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_liangcai));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_tangzhou));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_jiachang));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_haixian));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_gaodian));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_tianpin));
+				urlStrings.add(Activity_Common.this.getString(R.string.url_xican));
+			
+			return urlStrings;
+		}
+		
+		
 
 }
  

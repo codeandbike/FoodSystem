@@ -62,6 +62,7 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener{
 				intent.setClass(Activity_FirstPage.this, MainActivity.class);
 				intent.putExtra("FoodName", mEditText_input.getText()
 						.toString());
+				intent.putExtra("Tag", 0);
 				startActivity(intent);
 			}
 		});

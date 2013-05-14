@@ -71,6 +71,8 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 	private List<Bitmap> listImage = new ArrayList<Bitmap>();
 	private List<String> imageUrl = new ArrayList<String>();
 	private String mString_Food;
+	private int mTag_Food;   //“≥√Ê±Í ∂
+	private String mURL_Page; //
 	private String mURL_Food;
 	private TextView mTextView_Title;
 	private List<Map<String, String>> contentData;
@@ -89,6 +91,8 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 		mImageButton_Back = (ImageButton) findViewById(R.id.Main_ImgBut_Back);
 		Intent intent = getIntent();
 		mString_Food = intent.getStringExtra("FoodName");
+		mTag_Food = intent.getIntExtra("Tag", 0);
+		mURL_Page = intent.getStringExtra("url");
 		mTextView_Title.setText(mString_Food);
 		try {
 			mURL_Food = URLEncoder.encode(mString_Food, "UTF-8");
@@ -103,11 +107,23 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 		listData = new ArrayList<Map<String, Object>>();
 		contentData = new ArrayList<Map<String, String>>();
 		try {
+			String str;
+			if (mTag_Food == 0) {
+				str = PostHtml(
+						"http://home.meishichina.com/wap.php?ac=search",
+						mString_Food);
+			}else {
+				HttpDate httpDate = new HttpDate();
+				str = httpDate.GetHtml(mURL_Page);
 
-			String str = PostHtml(
-					"http://home.meishichina.com/wap.php?ac=search",
-					mString_Food);
+			}
+
+			
+//			HttpDate httpDate = new HttpDate();
+//			String caixiHTML = httpDate.GetHtml("http://home.meishichina.com/wap.php?ac=collect&id=43422&t=3&fr=#utm_source=wap3_index_caixi");
 			String xmlData = String_Cut(str);
+			xmlData=xmlData.replaceAll("&nbsp;", "");
+			
 			inputStream = String2InputStream(xmlData);
 			contentData = getData(inputStream);
 
