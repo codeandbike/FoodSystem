@@ -33,7 +33,7 @@ import android.widget.Toast;
  * 
  *         类说明:
  */
-public class Activity_FirstPage extends Activity implements OnItemClickListener{
+public class Activity_FirstPage extends Activity implements OnItemClickListener {
 
 	private EditText mEditText_input;
 	private ImageButton mButton_sou;
@@ -50,8 +50,9 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener{
 		mGridView_push = (GridView) findViewById(R.id.FirstPage_Grid_push);
 
 		GridViewAdapter adapter_push = new GridViewAdapter(
-				Activity_FirstPage.this, getStrings(),getBitmaps());
+				Activity_FirstPage.this, getStrings(), getBitmaps());
 		mGridView_push.setAdapter(adapter_push);
+		mGridView_push.setOnItemClickListener(this);
 
 		mButton_sou.setOnClickListener(new View.OnClickListener() {
 
@@ -68,7 +69,7 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener{
 		});
 	}
 
-	private List<String> getStrings() {
+	public List<String> getStrings() {
 		List<String> strings = new ArrayList<String>();
 		strings.add("水煮鱼");
 		strings.add("红烧肉");
@@ -92,28 +93,33 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener{
 	private List<Bitmap> getBitmaps() {
 		List<Bitmap> Bitmaps = new ArrayList<Bitmap>();
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.shuizhuyu));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.hongshaorou));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.kelejichi));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.jiangniurou));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.disanxian));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.doufu));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.bailuobo));
 		Bitmaps.add(getBitmapFromResources(Activity_FirstPage.this,
-				R.drawable.foodimag));
+				R.drawable.jiyutang));
 		return Bitmaps;
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-		
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long rowid) {
+		Intent intent = new Intent();
+		intent.setClass(Activity_FirstPage.this, MainActivity.class);
+		intent.putExtra("FoodName", getStrings().get(position));
+		intent.putExtra("Tag", 0);
+		startActivity(intent);
+
 	}
 
 	// @Override
