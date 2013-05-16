@@ -3,14 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <!--   -->
    <Button 
        android:id="@+id/about_button_update"
        android:layout_height="wrap_content"
        android:layout_width="fill_parent"
-       android:text="检查更新"
+       android:text="联系我们"
        android:layout_alignParentBottom="true"
        
        />
+       
+      
    
    <LinearLayout android:layout_height="wrap_content"
        android:layout_above="@id/about_button_update"
@@ -38,12 +41,12 @@
        <TextView 
            android:layout_height="wrap_content"
            android:layout_width="wrap_content"
-           android:text="作者：许度庆"
+           android:text="作者：许度庆、汪家栋"
            />
        <TextView 
            android:layout_height="wrap_content"
            android:layout_width="wrap_content"
-           android:text="bug反馈：ahjd114@163.com"
+           android:text="bug反馈：coder_tbb@163.com"
            />
        <TextView 
            android:layout_height="wrap_content"
