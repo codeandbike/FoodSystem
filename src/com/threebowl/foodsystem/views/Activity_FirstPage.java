@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 	private ImageButton mButton_sou;
 	private GridView mGridView_push;
 	private boolean isExit = false;
+	private ProgressBar pb_deng;
+	private Handler mHandler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 		mEditText_input = (EditText) findViewById(R.id.FirstPage_edit_input);
 		mButton_sou = (ImageButton) findViewById(R.id.FirstPage_button_sou);
 		mGridView_push = (GridView) findViewById(R.id.FirstPage_Grid_push);
+		pb_deng = (ProgressBar) this.findViewById(R.id.pb_deng);
+		pb_deng.setVisibility(View.GONE);
+		mHandler = new MyHandler();
 
 		GridViewAdapter adapter_push = new GridViewAdapter(
 				Activity_FirstPage.this, getStrings(), getBitmaps());
@@ -58,13 +64,10 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent();
-				intent.setClass(Activity_FirstPage.this, MainActivity.class);
-				intent.putExtra("FoodName", mEditText_input.getText()
-						.toString());
-				intent.putExtra("Tag", 0);
-				startActivity(intent);
+				pb_deng.setVisibility(View.VISIBLE);
+				MyThread mThread = new MyThread();
+				new Thread(mThread).start();
+
 			}
 		});
 	}
@@ -122,38 +125,30 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 
 	}
 
-	// @Override
-	// public boolean onKeyDown(int keyCode, KeyEvent event) {
-	// // TODO Auto-generated method stub
-	//
-	// if (keyCode == KeyEvent.KEYCODE_BACK) {
-	// ToQuitApp();
-	// return false;
-	// } else {
-	// return super.onKeyDown(keyCode, event);
-	// }
-	// }
-	//
-	// private void ToQuitApp(){
-	// if (isExit) {
-	// Intent intent = new Intent(Intent.ACTION_MAIN);
-	// intent.addCategory(intent.CATEGORY_HOME);
-	// startActivity(intent);
-	// System.exit(0);
-	// } else {
-	// isExit = true;
-	// Toast.makeText(Activity_FirstPage.this, "再按一次返回键退出APP",
-	// Toast.LENGTH_SHORT).show();
-	// mHandler.sendEmptyMessageDelayed(0, 3000);
-	//
-	// }
-	// }
-	//
-	// Handler mHandler = new Handler(){
-	// public void handleMessage(Message msg) {
-	// super.handleMessage(msg);
-	// isExit = false;
-	// };
-	// };
+	class MyHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			pb_deng.setVisibility(View.GONE);
+		}
+	}
+
+	class MyThread implements Runnable {
+
+		@Override
+		public void run() {
+			Message msg = new Message();
+			Intent intent = new Intent();
+			intent.setClass(Activity_FirstPage.this, MainActivity.class);
+			intent.putExtra("FoodName", mEditText_input.getText().toString());
+			intent.putExtra("Tag", 0);
+			startActivity(intent);
+			Activity_FirstPage.this.mHandler.sendMessage(msg);
+
+		}
+
+	}
+
 
 }

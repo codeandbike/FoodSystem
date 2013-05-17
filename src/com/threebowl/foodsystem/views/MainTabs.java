@@ -76,5 +76,40 @@ public class MainTabs extends TabActivity implements OnCheckedChangeListener {
 		}
 
 	}
+	
+	@Override
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			ToQuitApp();
+			return false;
+		} else {
+			return super.dispatchKeyEvent(event);
+		}
+
+	}
+
+	private void ToQuitApp() {
+		if (isExit) {
+			Intent intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			startActivity(intent);
+			System.exit(0);
+		} else {
+			isExit = true;
+			Toast.makeText(MainTabs.this, "再按一次返回键退出菜谱",
+					Toast.LENGTH_SHORT).show();
+			myHandler.sendEmptyMessageDelayed(0, 3000);
+
+		}
+	}
+
+	Handler myHandler = new Handler() {
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			isExit = false;
+		};
+	};
 
 }
