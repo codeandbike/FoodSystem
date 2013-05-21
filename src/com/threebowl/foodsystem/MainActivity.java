@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.threebowl.foodsystem.base.HttpDate;
 
@@ -179,7 +181,14 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 				str = httpDate.GetHtml(mURL_Page);
 			}
 			String xmlData = String_Cut(str);
+			//去掉特殊字符
 			xmlData = xmlData.replaceAll("&nbsp;", "");
+			//xmlData = xmlData.replaceAll(, "");
+			//去掉回车换行符号
+			Pattern p = Pattern.compile("\r|\n");
+			Matcher m = p.matcher(xmlData);
+			xmlData = m.replaceAll("");
+			  
 			inputStream = httpDate.String2InputStream(xmlData);
 			contentData = httpDate.getSouData(inputStream);
 
@@ -210,11 +219,11 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 	public ProgressDialog getMypDialog() {
 		ProgressDialog mpDialog = new ProgressDialog(MainActivity.this);
 		mpDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		mpDialog.setTitle("请稍等");// 设置标题
-		mpDialog.setIcon(R.drawable.icon_logo);// 设置图标
+//		mpDialog.setTitle("请稍等");// 设置标题
+//		mpDialog.setIcon(R.drawable.icon_logo);// 设置图标
 		mpDialog.setMessage("正在加载您要的数据...");
 		mpDialog.setIndeterminate(false);// 设置进度条是否为不明确
-		mpDialog.setCancelable(true);// 设置进度条是否可以按退回键取消
+		mpDialog.setCancelable(false);// 设置进度条是否可以按退回键取消
 		return mpDialog;
 	}
 
@@ -373,6 +382,10 @@ public class MainActivity extends ListActivity implements OnScrollListener {
 
 			String xmlData = String_Cut(html);
 			xmlData = xmlData.replaceAll("&nbsp;", "");
+			//去掉回车换行符号
+			Pattern p = Pattern.compile("\r|\n");
+			Matcher m = p.matcher(xmlData);
+			xmlData = m.replaceAll("");
 			inputStream = httpDate.String2InputStream(xmlData);
 
 			List<Map<String, String>> list = new ArrayList<Map<String, String>>();

@@ -59,6 +59,7 @@ public class Activity_ContentPage extends Activity {
 		date = new HttpDate();
 		String tempHtml = date.GetHtml(url_a);//获取到完整的html页面数据
 		String tempCut = date.String_Cut(tempHtml);//截取有用数据
+		tempCut = tempCut.replaceAll("&nbsp;", "");
 		List<String> tempUrls = new ArrayList<String>();
 		List<String> tempSpans = date.GetSpan(tempCut);
 		List<Bitmap> bitmaps = new ArrayList<Bitmap>();
