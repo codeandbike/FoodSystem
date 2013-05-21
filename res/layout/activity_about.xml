@@ -51,6 +51,11 @@
        <TextView 
            android:layout_height="wrap_content"
            android:layout_width="wrap_content"
+           android:text="本系统数据来自《美食天下》如有侵权请告知"
+           />
+       <TextView 
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
            android:text="以此致谢背后的爱人，原谅没有太多的时间陪你"
            />
    </LinearLayout>
