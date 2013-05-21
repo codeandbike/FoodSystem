@@ -8,16 +8,15 @@
         android:layout_width="fill_parent"
         android:layout_height="38dp"
         android:background="#196fba" >
-        <ImageButton 
+
+        <ImageButton
             android:id="@+id/Main_ImgBut_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#196fba"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/back"
             android:layout_alignParentBottom="true"
-            
-            />
+            android:layout_marginLeft="10dp"
+            android:background="#196fba"
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/Main_Text_Title"
@@ -35,5 +34,7 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="10dp" >
     </ListView>
+
+
 
 </LinearLayout>

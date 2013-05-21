@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -61,7 +63,6 @@ public class Activity_ContentPage extends Activity {
 		List<String> tempSpans = date.GetSpan(tempCut);
 		List<Bitmap> bitmaps = new ArrayList<Bitmap>();
 		
-		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(Activity_ContentPage.this, android.R.layout.simple_list_item_1, tempSpans);
 
 		try {
 			tempUrls = date.getData(date.String2InputStream(tempCut));
@@ -76,5 +77,7 @@ public class Activity_ContentPage extends Activity {
 		mListView_Span.setAdapter(adapter);
 
 	}
+	
+	
 }
  

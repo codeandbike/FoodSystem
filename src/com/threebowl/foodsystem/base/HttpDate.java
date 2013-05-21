@@ -25,7 +25,6 @@ import org.apache.http.util.EntityUtils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-
 /**
  * @date 2013-3-19
  * @time 下午8:49:09
@@ -45,7 +44,7 @@ public class HttpDate {
 	 * @param url
 	 * @return
 	 */
-	private String PostHtml(String url, String FoodName) {
+	public String PostHtml(String url, String FoodName) {
 
 		String urlAPI = url;
 		String data = null;
@@ -77,7 +76,6 @@ public class HttpDate {
 
 		return data;
 	}
-
 
 	/**
 	 * string 转换 inputstream
@@ -157,7 +155,7 @@ public class HttpDate {
 		// toByteArray()创建一个新分配的 byte 数组。
 		return outStream.toByteArray();
 	}
-	
+
 	/**
 	 * 字符串截取
 	 * 
@@ -170,7 +168,7 @@ public class HttpDate {
 
 			int i = is.indexOf("制作步骤</div>");
 			int q = is.indexOf("</ul></div>");
-			str = is.substring(i+10, q + 11);
+			str = is.substring(i + 10, q + 11);
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -178,27 +176,46 @@ public class HttpDate {
 
 		return str;
 	}
-	
+
 	/**
 	 * 获取数据中的菜品制作过程
+	 * 
 	 * @param input
 	 */
-	public List<String> GetSpan(String input){
-		
+	public List<String> GetSpan(String input) {
+
 		String s = input;
 		List<String> mStrings = new ArrayList<String>();
-		
-		while (s.indexOf("</span>")!=-1) {
 
-			s = s.substring(s.indexOf("</span>")+7);
+		while (s.indexOf("</span>") != -1) {
+
+			s = s.substring(s.indexOf("</span>") + 7);
 			mStrings.add(s.substring(0, s.indexOf("</div>")));
 		}
-		
+
 		return mStrings;
-		
+
 	}
-	
-	
+
+	public List<Map<String, String>> getSouData(InputStream inputStream) {
+		List<Map<String, String>> listData = new ArrayList<Map<String, String>>();
+		try {
+
+			SAXParserFactory spf = SAXParserFactory.newInstance();
+			SAXParser parser = spf.newSAXParser();
+			MyHandler handler = new MyHandler();
+			parser.parse(inputStream, handler);
+			inputStream.close();
+
+			listData = handler.getListMaps();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return listData;
+	}
+
 	/**
 	 * 图片的获取
 	 * 

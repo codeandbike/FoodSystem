@@ -8,14 +8,14 @@
     <string name="message">菜系</string>
     <string name="photo">家常</string>
     <string name="music">关于</string>
-    <string name="url_chuan">http://home.meishichina.com/wap.php?ac=collect&amp;id=43422&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_lu">http://home.meishichina.com/wap.php?ac=collect&amp;id=43423&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_min">http://home.meishichina.com/wap.php?ac=collect&amp;id=43427&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_yue">http://home.meishichina.com/wap.php?ac=collect&amp;id=43424&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_shu">http://home.meishichina.com/wap.php?ac=collect&amp;id=43429&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_zhe">http://home.meishichina.com/wap.php?ac=collect&amp;id=43428&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_xiang">http://home.meishichina.com/wap.php?ac=collect&amp;id=43426&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
-    <string name="url_hui">http://home.meishichina.com/wap.php?ac=collect&amp;id=43430&amp;t=3&amp;fr=#utm_source=wap3_index_caixi</string>
+    <string name="url_chuan">http://home.meishichina.com/wap.php?ac=collect&amp;id=43422&amp;t=3&amp;fr=</string>
+    <string name="url_lu">http://home.meishichina.com/wap.php?ac=collect&amp;id=43423&amp;t=3&amp;fr=</string>
+    <string name="url_min">http://home.meishichina.com/wap.php?ac=collect&amp;id=43427&amp;t=3&amp;fr=</string>
+    <string name="url_yue">http://home.meishichina.com/wap.php?ac=collect&amp;id=43424&amp;t=3&amp;fr=</string>
+    <string name="url_shu">http://home.meishichina.com/wap.php?ac=collect&amp;id=43429&amp;t=3&amp;fr=</string>
+    <string name="url_zhe">http://home.meishichina.com/wap.php?ac=collect&amp;id=43428&amp;t=3&amp;fr=</string>
+    <string name="url_xiang">http://home.meishichina.com/wap.php?ac=collect&amp;id=43426&amp;t=3&amp;fr=</string>
+    <string name="url_hui">http://home.meishichina.com/wap.php?ac=collect&amp;id=43430&amp;t=3&amp;fr=</string>
     
     <string name="url_recai">http://home.meishichina.com/wap.php?ac=collect&amp;id=29971&amp;t=3&amp;fr=</string>
     <string name="url_liangcai">http://home.meishichina.com/wap.php?ac=collect&amp;id=29970&amp;t=3&amp;fr=</string>

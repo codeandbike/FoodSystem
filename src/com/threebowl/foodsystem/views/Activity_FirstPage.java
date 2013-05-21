@@ -6,26 +6,20 @@ import java.util.List;
 import com.threebowl.foodsystem.MainActivity;
 import com.threebowl.foodsystem.R;
 
-import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.KeyEvent;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 /**
  * @date 2013-3-20
@@ -39,9 +33,6 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 	private EditText mEditText_input;
 	private ImageButton mButton_sou;
 	private GridView mGridView_push;
-	private boolean isExit = false;
-	private ProgressBar pb_deng;
-	private Handler mHandler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +42,6 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 		mEditText_input = (EditText) findViewById(R.id.FirstPage_edit_input);
 		mButton_sou = (ImageButton) findViewById(R.id.FirstPage_button_sou);
 		mGridView_push = (GridView) findViewById(R.id.FirstPage_Grid_push);
-		pb_deng = (ProgressBar) this.findViewById(R.id.pb_deng);
-		pb_deng.setVisibility(View.GONE);
-		mHandler = new MyHandler();
 
 		GridViewAdapter adapter_push = new GridViewAdapter(
 				Activity_FirstPage.this, getStrings(), getBitmaps());
@@ -64,13 +52,17 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 
 			@Override
 			public void onClick(View v) {
-				pb_deng.setVisibility(View.VISIBLE);
-				MyThread mThread = new MyThread();
-				new Thread(mThread).start();
+				Intent intent = new Intent();
+				intent.setClass(Activity_FirstPage.this, MainActivity.class);
+				intent.putExtra("FoodName", mEditText_input.getText()
+						.toString());
+				intent.putExtra("Tag", 0);
+				startActivity(intent);
 
 			}
 		});
 	}
+
 
 	public List<String> getStrings() {
 		List<String> strings = new ArrayList<String>();
@@ -124,31 +116,5 @@ public class Activity_FirstPage extends Activity implements OnItemClickListener 
 		startActivity(intent);
 
 	}
-
-	class MyHandler extends Handler {
-		@Override
-		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
-			super.handleMessage(msg);
-			pb_deng.setVisibility(View.GONE);
-		}
-	}
-
-	class MyThread implements Runnable {
-
-		@Override
-		public void run() {
-			Message msg = new Message();
-			Intent intent = new Intent();
-			intent.setClass(Activity_FirstPage.this, MainActivity.class);
-			intent.putExtra("FoodName", mEditText_input.getText().toString());
-			intent.putExtra("Tag", 0);
-			startActivity(intent);
-			Activity_FirstPage.this.mHandler.sendMessage(msg);
-
-		}
-
-	}
-
 
 }
